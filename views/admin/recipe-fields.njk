@@ -1,0 +1,56 @@
+<div class="recipe-name">
+  <h3>Nome da receita</h3>
+  <input type="text" name="title" value="{{recipe.title}}">
+</div>
+
+<div class="recipe-author">
+  <h3>Autor da receita</h3>
+  <input type="text" name="author" value="{{recipe.author}}">
+</div>
+
+<div class="recipe-img">
+  <h3>Imagem da receita</h3>
+  <input type="url" name="image" placeholder="http://"
+   value="{{recipe.image}}">
+</div>
+
+<div class="recipe-ingredients">
+  <h3>Ingredientes</h3>
+  <div id="ingredients">
+  {% if recipe %}
+    {% for ingredient in recipe.ingredients %}
+      <div class="ingredient">
+        <input type="text" name="ingredients[]" value="{{ingredient}}">
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="ingredient">
+        <input type="text" name="ingredients[]" value="{{recipe.ingredients}}">
+      </div>
+  {% endif %}
+  </div>
+  <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
+</div>
+
+<div class="recipe-preparation">
+  <h3>Modo de preparo</h3>
+  <div id="preparations">
+  {% if recipe %}
+    {% for preparation in recipe.preparation %}
+      <div class="preparation">
+        <input type="text" name="preparation[]" value="{{preparation}}">
+      </div>
+    {% endfor %}
+  {% else %}
+      <div class="preparation">
+        <input type="text" name="preparation[]" value="{{recipe.preparation}}">
+      </div>
+  {% endif %}
+  </div>
+  <button type="button" class="add-prepare">Adicionar novo passo</button>
+</div>
+
+<div class="recipe-informations">
+  <h3>Informações adicionais</h3>
+  <input type="text" name="information" value="{{recipe.information}}">
+</div>
